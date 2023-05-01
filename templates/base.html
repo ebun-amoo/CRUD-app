@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  {# CSS framework #}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
+  {% block head %} {% endblock %}
+</head>
+
+<body>
+  {# navigation bar #}
+  <div class="ui small menu">
+    <a class="{% block Home %}{% endblock %} item" href="{{url_for('index')}}">
+        Home
+    </a>
+    
+    <div class="right menu">
+      {# displays login and signup buttons if the user hasn't logged in #}
+      {% if current_user.is_anonymous %}
+        <div class="{% block Login %}{% endblock %} item">
+            <div><a class="ui secondary button" href="{{url_for('login')}}">Login</a></div>
+        </div>
+        <div class="{% block Register %}{% endblock %} item">
+            <div><a class="ui primary button" href="{{url_for('register')}}">Sign Up</a></div>
+        </div>
+        
+      {%else%}
+        {# displays logout button and menu to the list of writeups if the user is logged in #}
+        <a class="{% block Tracker %}{% endblock %} item" href="{{url_for('tracker')}}">
+        Writing List</a>
+
+        <div class="item">
+          <div><a class="ui secondary button" href="{{url_for('logout')}}">Logout</a></div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  {% block body %}
+    
+  {% endblock %}
+       
+</body>
+
+</html>

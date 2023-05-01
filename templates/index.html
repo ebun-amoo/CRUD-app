@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block head %} 
+
+{% endblock %}
+
+{# shows that the page is active in the nav bar #}
+{% block Home %}active{% endblock %}
+
+{% block body %}
+{# home page contents #}
+<div style="margin-top: 50px;" class="ui container">
+    <h1 style="font-size:40px" class="ui brown center aligned header">Writing Tracker</h1>
+    <p style="text-align:center; font-size:20px">Keep track of your writings...</p>
+    <img class="ui centered medium circular image" src="{{url_for('static', filename='images/write.jpg')}}">
+</div>
+{% endblock %}

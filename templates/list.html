@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block head %} 
+
+{% endblock %}
+
+{# shows that the page is active in the nav bar #}
+{% block Tracker %}active{% endblock %}
+
+{% block body %} 
+
+{# displays the list of writeups #}
+<div style="margin-top: 50px;" class="ui container">
+  <h1 class="ui center aligned header">My Writing List</h1>
+  
+  {% for writeup in writeups%}
+  <div class="ui segment">
+    <p class="ui big header">{{writeup.content}} | {{message_dict[writeup.id]}}</p>
+
+    {% if writeup.completed == False%}
+      <span class="ui grey label">In progress</span>
+    {% else %}
+      <span class="ui green label">Completed</span>
+    {% endif %}
+
+    {# displays the CRUD functions #}
+    <a class="ui blue button" href="/update/{{writeup.id}}">Update</a>
+    <a class="ui grey button" href="/edit/{{writeup.id}}">Edit</a>
+    <a class="ui red button" href="/delete/{{writeup.id}}">Delete</a>
+  </div>
+  {% endfor %}
+
+  <br>
+  {# link to the add_writeup page #}
+  <a class="ui black button" href="/add">Add More</a>
+</div>
+{% endblock %}
+

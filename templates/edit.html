@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block head %} 
+
+{% endblock %}
+
+{% block body %} 
+
+{# displays form to edit an already displayed writeup #}
+<div style="margin-top: 50px;" class="ui container">
+  <h1 class="ui center aligned header">Update Writeup</h1>
+
+  <form class="ui form" action="/edit/{{writing_id}}" method="POST">
+    <div class="field">
+      <label for="title"> Writing Title</label>
+      <input type="text" name="title" placeholder="Writing Title">
+      <br>
+      <br>
+      <label for="deadline"> Due date</label>
+      <input type="datetime-local" name="deadline">
+      <br>
+      <br>
+      <button class="ui black button" type="submit">Add</button>
+    </div>
+  </form>
+</div>
+{% endblock %}
