@@ -1,5 +1,4 @@
-# CRUD-app
-## This app is called Writing tracker. 
+# CRUD-app : Writing Tracker
 To run the app locally, you can clone the GitHub repository (https://github.com/kibo-web-app-dev-jan-23/final-project---crud-app-meta-verse-1) and download all the dependencies in the requirement.txt: pip install -r requirements.txt
 
 The app is deployed on: https://writing-tracker2.onrender.com/
